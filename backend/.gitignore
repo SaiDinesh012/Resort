@@ -1,2 +1,3 @@
-.env/
-node_m
+.env
+.env.*
+node_modules/
