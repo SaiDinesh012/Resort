@@ -1,9 +1,9 @@
-export const SITE_NAME = "Vanapriya Resort";
+export const SITE_NAME = "Royal Gradin";
 export const SITE_TAGLINE = "Where Wilderness Meets Luxury";
 export const SITE_DESCRIPTION =
-  "Nestled in the heart of the Western Ghats, Vanapriya Resort offers an unparalleled luxury escape surrounded by pristine forests, cascading waterfalls, and breathtaking mountain vistas.";
+  "Nestled in the heart of pristine nature, Royal Gradin offers an unparalleled luxury escape surrounded by cascading waterfalls, lush landscapes, and breathtaking vistas.";
 export const SITE_PHONE = "+91 98765 43210";
-export const SITE_EMAIL = "reservations@vanapriya.com";
+export const SITE_EMAIL = "reservations@royalgradin.com";
 export const SITE_ADDRESS = "Survey No. 45, Chikmagalur-Koppa Road, Balaehonnur, Karnataka 577111, India";
 
 export const NAV_LINKS = [
