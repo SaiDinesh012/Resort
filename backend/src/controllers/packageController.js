@@ -1,5 +1,4 @@
 const Package = require("../models/Package");
-const { mockPackages } = require("../data/mockData");
 
 exports.getPackages = async (req, res) => {
   try {
@@ -8,12 +7,7 @@ exports.getPackages = async (req, res) => {
     if (status) query.status = status;
     if (featured === "true") query.featured = true;
 
-    let packages = await Package.find(query).sort({ createdAt: -1 });
-
-    if (packages.length === 0 && Object.keys(query).length === 0) {
-      await Package.insertMany(mockPackages);
-      packages = await Package.find({}).sort({ createdAt: -1 });
-    }
+    const packages = await Package.find(query).sort({ createdAt: -1 });
 
     res.json(packages);
   } catch (error) {
@@ -24,15 +18,7 @@ exports.getPackages = async (req, res) => {
 exports.getPackageById = async (req, res) => {
   try {
     const { id } = req.params;
-    let pkg = await Package.findOne({ $or: [{ id }, { slug: id }] });
-
-    if (!pkg) {
-      const mockMatch = mockPackages.find((p) => p.id === id || p.slug === id);
-      if (mockMatch) {
-        await Package.create(mockMatch);
-        pkg = await Package.findOne({ $or: [{ id }, { slug: id }] });
-      }
-    }
+    const pkg = await Package.findOne({ $or: [{ id }, { slug: id }] });
 
     if (!pkg) return res.status(404).json({ error: "Package not found" });
     res.json(pkg);
@@ -55,7 +41,7 @@ exports.createPackage = async (req, res) => {
       ...body,
       id,
       slug,
-      images: body.images?.length ? body.images : ["https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80"],
+      images: Array.isArray(body.images) ? body.images : [],
     });
 
     res.status(201).json(newPackage);
