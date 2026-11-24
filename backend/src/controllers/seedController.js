@@ -54,9 +54,9 @@ exports.seedData = async (req, res) => {
     await Setting.create({
       key: "site_config",
       value: {
-        siteName: "Royal Grand IN Resorts",
+        siteName: "Royalgrandin Resort",
         tagline: "Stay Once, Carry Memories Forever",
-        description: "Nestled amidst the lush forests and serene landscapes of Maredumilli, Royal Grand IN Resorts offers an unparalleled luxury escape where royalty meets the wild.",
+        description: "Nestled amidst the lush forests and serene landscapes of Maredumilli, Royalgrandin Resort offers an unparalleled luxury escape where royalty meets the wild.",
         logoUrl: "",
         phone: "+91 98765 43210",
         email: "reservations@royalgrandin.com",
